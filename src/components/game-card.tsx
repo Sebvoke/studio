@@ -57,7 +57,7 @@ export function GameCard({ questionData }: GameCardProps) {
         )}
       >
         {/* Front of the card */}
-        <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 bg-card/10 backdrop-blur-lg">
+        <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 bg-card/80 backdrop-blur-md">
           <div className="flex flex-col items-center justify-center w-full h-full p-6 text-center text-white">
             <div className="relative w-32 h-32 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
                <Image
@@ -80,7 +80,7 @@ export function GameCard({ questionData }: GameCardProps) {
 
         {/* Back of the card */}
         <div className={cn(
-          "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl overflow-hidden border-4 border-white/10 bg-card/10 backdrop-blur-lg",
+          "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl overflow-hidden border-4 border-white/10 bg-card/80 backdrop-blur-md",
           "transition-opacity duration-300",
           isRevealed ? "opacity-100" : "opacity-0"
         )}>
@@ -89,11 +89,11 @@ export function GameCard({ questionData }: GameCardProps) {
               <div className="text-center flex flex-col items-center gap-4 px-4">
                 <PartyPopper className="w-20 h-20 text-accent animate-bounce" />
                 <h2 className="text-3xl md:text-4xl font-black text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">¡GANASTE!</h2>
-                <p className="text-foreground/80 text-base sm:text-lg">¡Has desbloqueado tu regalo!</p>
+                <p className="text-white/90 text-base sm:text-lg">¡Has desbloqueado tu regalo!</p>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-around h-full w-full">
-                <h2 className="text-lg sm:text-xl font-bold leading-tight px-2">
+                <h2 className="text-lg sm:text-xl font-bold leading-tight px-2 text-white">
                   {questionData.question}
                 </h2>
                 <div className="flex flex-col w-full max-w-xs space-y-2 sm:space-y-3">
@@ -105,7 +105,7 @@ export function GameCard({ questionData }: GameCardProps) {
                         handleAnswerClick(option)
                       }}
                       className="w-full h-auto text-sm sm:text-base py-3 px-4 whitespace-normal rounded-xl font-semibold transition-all duration-300
-                                 border-2 border-primary/30 bg-primary/10 text-foreground
+                                 border-2 border-primary/30 bg-primary/10 text-white
                                  hover:bg-accent hover:text-accent-foreground hover:border-accent focus:bg-accent focus:text-accent-foreground focus:border-accent"
                       variant="outline"
                       disabled={answerState !== 'unanswered'}

@@ -18,7 +18,7 @@ export default function Home() {
         ))}
       </div>
       <div className="mt-12">
-        <Button onClick={handleRestart} size="lg" variant="outline" className="shadow-lg">
+        <Button onClick={handleRestart} size="lg" variant="outline" className="shadow-lg text-white border-white/50 hover:bg-white/10 hover:text-white">
           <RotateCw className="mr-2 h-5 w-5" />
           Reiniciar Juego
         </Button>
