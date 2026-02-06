@@ -57,7 +57,7 @@ export function GameCard({ questionData }: GameCardProps) {
         )}
       >
         {/* Front of the card */}
-        <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 bg-card/80 backdrop-blur-md">
+        <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 bg-black/80 backdrop-blur-md">
           <div className="flex flex-col items-center justify-center w-full h-full p-6 text-center text-white">
             <div className="relative w-32 h-32 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
                <Image
@@ -80,7 +80,7 @@ export function GameCard({ questionData }: GameCardProps) {
 
         {/* Back of the card */}
         <div className={cn(
-          "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl overflow-hidden border-4 border-white/10 bg-card/80 backdrop-blur-md",
+          "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl overflow-hidden border-4 border-white/10 bg-black/80 backdrop-blur-md",
           "transition-opacity duration-300",
           isRevealed ? "opacity-100" : "opacity-0"
         )}>
