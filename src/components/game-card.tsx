@@ -58,7 +58,7 @@ export function GameCard({ questionData }: GameCardProps) {
       >
         {/* Front of the card */}
         <div className="absolute w-full h-full backface-hidden rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary to-accent">
-          <div className="flex items-center justify-center w-full h-full p-4 overflow-hidden bg-card/70 backdrop-blur-sm rounded-[15px]">
+          <div className="flex items-center justify-center w-full h-full p-4 overflow-hidden bg-card/90 backdrop-blur-sm rounded-[15px]">
             <Image
               src={questionData.image}
               alt="Regalo"
@@ -74,7 +74,7 @@ export function GameCard({ questionData }: GameCardProps) {
           "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary to-accent transition-opacity duration-300",
           isRevealed ? "opacity-100" : "opacity-0"
         )}>
-          <div className="w-full h-full bg-card/70 backdrop-blur-sm rounded-[15px] flex flex-col items-center justify-center p-4 md:p-6">
+          <div className="w-full h-full bg-card/90 backdrop-blur-sm rounded-[15px] flex flex-col items-center justify-center p-4 md:p-6">
             {answerState === 'correct' ? (
               <div className="text-center flex flex-col items-center gap-4">
                 <PartyPopper className="w-16 h-16 text-primary" />
