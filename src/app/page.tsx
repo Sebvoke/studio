@@ -1,10 +1,18 @@
+"use client";
+
 import { GameCard } from "@/components/game-card";
 import { questions } from "@/lib/questions";
+import { Button } from "@/components/ui/button";
+import { RotateCw } from "lucide-react";
 
 export default function Home() {
+  const handleRestart = () => {
+    window.location.reload();
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-background/90 p-4 sm:p-8 md:p-12">
-      <div className="text-center mb-12 bg-card/80 backdrop-blur-sm p-8 rounded-2xl shadow-xl border">
+    <main className="flex min-h-screen flex-col items-center justify-center bg-background/70 p-4 sm:p-8 md:p-12">
+      <div className="text-center mb-12 bg-card/70 backdrop-blur-sm p-8 rounded-2xl shadow-xl border">
         <h1 className="text-4xl md:text-6xl font-black text-primary uppercase tracking-wider font-headline">
           Juego Electoral Perú 2026
         </h1>
@@ -16,6 +24,12 @@ export default function Home() {
         {questions.map((q) => (
           <GameCard key={q.id} questionData={q} />
         ))}
+      </div>
+      <div className="mt-12">
+        <Button onClick={handleRestart} size="lg" variant="secondary" className="shadow-lg">
+          <RotateCw className="mr-2 h-5 w-5" />
+          Reiniciar Juego
+        </Button>
       </div>
     </main>
   );
