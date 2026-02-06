@@ -96,7 +96,7 @@ export function GameCard({ questionData }: GameCardProps) {
                 <h2 className="text-lg sm:text-xl font-bold leading-tight px-2 text-white">
                   {questionData.question}
                 </h2>
-                <div className="flex flex-col w-full max-w-xs space-y-2 sm:space-y-3">
+                <div className="flex flex-col w-full space-y-2 sm:space-y-3">
                   {questionData.options.map((option) => (
                     <Button
                       key={option}
@@ -105,7 +105,7 @@ export function GameCard({ questionData }: GameCardProps) {
                         handleAnswerClick(option)
                       }}
                       className="w-full h-auto text-sm sm:text-base py-3 px-4 whitespace-normal rounded-xl font-semibold transition-all duration-300
-                                 border-2 border-primary/30 bg-primary/10 text-white
+                                 border-2 border-primary/30 bg-black/80 text-white
                                  hover:bg-accent hover:text-accent-foreground hover:border-accent focus:bg-accent focus:text-accent-foreground focus:border-accent"
                       variant="outline"
                       disabled={answerState !== 'unanswered'}
