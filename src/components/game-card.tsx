@@ -57,7 +57,7 @@ export function GameCard({ questionData }: GameCardProps) {
         )}
       >
         {/* Front of the card */}
-        <div className="absolute w-full h-full backface-hidden rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary to-accent">
+        <div className="absolute w-full h-full backface-hidden rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary via-accent to-primary">
           <div className="flex items-center justify-center w-full h-full p-4 overflow-hidden bg-card/90 backdrop-blur-sm rounded-[15px]">
             <Image
               src={questionData.image}
@@ -71,10 +71,10 @@ export function GameCard({ questionData }: GameCardProps) {
 
         {/* Back of the card */}
         <div className={cn(
-          "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary to-accent transition-opacity duration-300",
+          "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary via-accent to-primary transition-opacity duration-300",
           isRevealed ? "opacity-100" : "opacity-0"
         )}>
-          <div className="w-full h-full bg-card/90 backdrop-blur-sm rounded-[15px] flex flex-col items-center justify-center p-4 md:p-6">
+          <div className="w-full h-full bg-card/90 backdrop-blur-sm rounded-[15px] flex flex-col items-center justify-center p-4">
             {answerState === 'correct' ? (
               <div className="text-center flex flex-col items-center gap-4">
                 <PartyPopper className="w-16 h-16 text-primary" />
@@ -83,7 +83,7 @@ export function GameCard({ questionData }: GameCardProps) {
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center h-full w-full text-center">
-                <h2 className="text-xl md:text-2xl font-bold italic mb-6 leading-tight">
+                <h2 className="text-base md:text-lg font-bold italic mb-4 leading-snug">
                   {questionData.question}
                 </h2>
                 <div className="flex flex-col w-full space-y-3">
@@ -94,7 +94,7 @@ export function GameCard({ questionData }: GameCardProps) {
                         e.stopPropagation(); // Prevent card from flipping back on button click
                         handleAnswerClick(option)
                       }}
-                      className="w-full h-auto text-base md:text-lg py-3 px-4 whitespace-normal"
+                      className="w-full h-auto text-sm md:text-base py-2 px-2 whitespace-normal"
                       variant="outline"
                       disabled={answerState !== 'unanswered'}
                     >
