@@ -11,7 +11,7 @@ export default function Home() {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center bg-background/70 p-4 sm:p-8 md:p-12">
+    <main className="flex min-h-screen flex-col items-center justify-center p-4 sm:p-8 md:p-12">
       <div className="text-center mb-12 bg-card/70 backdrop-blur-sm p-8 rounded-2xl shadow-xl border">
         <h1 className="text-4xl md:text-6xl font-black bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent uppercase tracking-wider font-headline">
           Juego Electoral Perú 2026
