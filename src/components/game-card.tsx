@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { Question } from "@/lib/questions";
 import { Button } from "@/components/ui/button";
-import { GiftIcon } from "@/components/icons";
 import { Card } from "@/components/ui/card";
 
 interface GameCardProps {
@@ -57,8 +57,14 @@ export function GameCard({ questionData }: GameCardProps) {
         )}
       >
         {/* Front of the card */}
-        <div className="absolute w-full h-full backface-hidden flex items-center justify-center bg-card rounded-lg border shadow-lg">
-          <GiftIcon className="w-20 h-20 md:w-24 md:h-24 text-primary" />
+        <div className="absolute w-full h-full backface-hidden flex items-center justify-center bg-card rounded-lg border shadow-lg p-4">
+          <Image
+            src={questionData.image}
+            alt="Regalo"
+            width={128}
+            height={128}
+            className="object-contain w-full h-full"
+          />
         </div>
 
         {/* Back of the card */}
