@@ -78,12 +78,12 @@ export function GameCard({ questionData }: GameCardProps) {
             {answerState === 'correct' ? (
               <div className="text-center flex flex-col items-center gap-4">
                 <PartyPopper className="w-16 h-16 text-primary" />
-                <h2 className="text-2xl md:text-3xl font-bold text-primary">¡Ganaste!</h2>
+                <h2 className="text-2xl md:text-3xl font-bold italic text-primary">¡Ganaste!</h2>
                 <p className="text-muted-foreground">¡Has desbloqueado tu regalo!</p>
               </div>
             ) : (
               <div className="flex flex-col items-center justify-center h-full w-full text-center">
-                <h2 className="text-xl md:text-2xl font-bold mb-6 leading-tight">
+                <h2 className="text-xl md:text-2xl font-bold italic mb-6 leading-tight">
                   {questionData.question}
                 </h2>
                 <div className="flex flex-col w-full space-y-3">
