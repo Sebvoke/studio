@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <main className="flex min-h-screen flex-col items-center justify-center bg-background/70 p-4 sm:p-8 md:p-12">
       <div className="text-center mb-12 bg-card/70 backdrop-blur-sm p-8 rounded-2xl shadow-xl border">
-        <h1 className="text-4xl md:text-6xl font-black text-primary uppercase tracking-wider font-headline">
+        <h1 className="text-4xl md:text-6xl font-black bg-gradient-to-br from-primary to-accent bg-clip-text text-transparent uppercase tracking-wider font-headline">
           Juego Electoral Perú 2026
         </h1>
         <p className="text-muted-foreground mt-4 text-lg md:text-xl max-w-2xl mx-auto">
@@ -26,7 +26,7 @@ export default function Home() {
         ))}
       </div>
       <div className="mt-12">
-        <Button onClick={handleRestart} size="lg" variant="secondary" className="shadow-lg">
+        <Button onClick={handleRestart} size="lg" variant="outline" className="shadow-lg">
           <RotateCw className="mr-2 h-5 w-5" />
           Reiniciar Juego
         </Button>

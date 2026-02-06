@@ -5,7 +5,6 @@ import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { Question } from "@/lib/questions";
 import { Button } from "@/components/ui/button";
-import { Card } from "@/components/ui/card";
 import { PartyPopper } from "lucide-react";
 
 interface GameCardProps {
@@ -50,59 +49,64 @@ export function GameCard({ questionData }: GameCardProps) {
 
   return (
     <div className="perspective-[1000px] w-full aspect-square cursor-pointer group" onClick={handleCardClick}>
-      <Card
+      <div
         className={cn(
-          "relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl",
+          "relative w-full h-full transition-transform duration-700 transform-style-3d",
           isFlipped ? "rotate-y-180" : "",
           glowEffect
         )}
       >
         {/* Front of the card */}
-        <div className="absolute w-full h-full backface-hidden flex items-center justify-center bg-card rounded-2xl border-2 shadow-lg p-4 overflow-hidden">
-           <Image
-            src={questionData.image}
-            alt="Regalo"
-            fill
-            className="object-contain w-full h-full p-4 group-hover:scale-110 transition-transform duration-300"
-          />
+        <div className="absolute w-full h-full backface-hidden rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary to-accent">
+          <div className="flex items-center justify-center w-full h-full p-4 overflow-hidden bg-card rounded-[15px]">
+            <Image
+              src={questionData.image}
+              alt="Regalo"
+              fill
+              className="object-contain w-full h-full p-4 transition-transform duration-300 group-hover:scale-110"
+            />
+          </div>
         </div>
+
 
         {/* Back of the card */}
         <div className={cn(
-          "absolute w-full h-full backface-hidden rotate-y-180 bg-card rounded-2xl border-2 shadow-lg flex flex-col items-center justify-center p-4 md:p-6 transition-opacity duration-300",
+          "absolute w-full h-full backface-hidden rotate-y-180 rounded-2xl shadow-xl p-0.5 bg-gradient-to-br from-primary to-accent transition-opacity duration-300",
           isRevealed ? "opacity-100" : "opacity-0"
         )}>
-          {answerState === 'correct' ? (
-            <div className="text-center flex flex-col items-center gap-4">
-              <PartyPopper className="w-16 h-16 text-primary" />
-              <h2 className="text-2xl md:text-3xl font-bold text-primary">¡Ganaste!</h2>
-              <p className="text-muted-foreground">¡Has desbloqueado tu regalo!</p>
-            </div>
-          ) : (
-            <div className="flex flex-col items-center justify-center h-full w-full text-center">
-              <h2 className="text-xl md:text-2xl font-bold mb-6 leading-tight">
-                {questionData.question}
-              </h2>
-              <div className="flex flex-col w-full space-y-3">
-                {questionData.options.map((option) => (
-                  <Button
-                    key={option}
-                    onClick={(e) => {
-                      e.stopPropagation(); // Prevent card from flipping back on button click
-                      handleAnswerClick(option)
-                    }}
-                    className="w-full h-auto text-base md:text-lg py-3 px-4 whitespace-normal"
-                    variant="secondary"
-                    disabled={answerState !== 'unanswered'}
-                  >
-                    {option}
-                  </Button>
-                ))}
+          <div className="w-full h-full bg-card rounded-[15px] flex flex-col items-center justify-center p-4 md:p-6">
+            {answerState === 'correct' ? (
+              <div className="text-center flex flex-col items-center gap-4">
+                <PartyPopper className="w-16 h-16 text-primary" />
+                <h2 className="text-2xl md:text-3xl font-bold text-primary">¡Ganaste!</h2>
+                <p className="text-muted-foreground">¡Has desbloqueado tu regalo!</p>
               </div>
-            </div>
-          )}
+            ) : (
+              <div className="flex flex-col items-center justify-center h-full w-full text-center">
+                <h2 className="text-xl md:text-2xl font-bold mb-6 leading-tight">
+                  {questionData.question}
+                </h2>
+                <div className="flex flex-col w-full space-y-3">
+                  {questionData.options.map((option) => (
+                    <Button
+                      key={option}
+                      onClick={(e) => {
+                        e.stopPropagation(); // Prevent card from flipping back on button click
+                        handleAnswerClick(option)
+                      }}
+                      className="w-full h-auto text-base md:text-lg py-3 px-4 whitespace-normal"
+                      variant="outline"
+                      disabled={answerState !== 'unanswered'}
+                    >
+                      {option}
+                    </Button>
+                  ))}
+                </div>
+              </div>
+            )}
+          </div>
         </div>
-      </Card>
+      </div>
     </div>
   );
 }
