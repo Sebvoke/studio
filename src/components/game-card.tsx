@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Question } from "@/lib/questions";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { PartyPopper } from "lucide-react";
 
 interface GameCardProps {
   questionData: Question;
@@ -42,43 +43,44 @@ export function GameCard({ questionData }: GameCardProps) {
 
   const glowEffect =
     answerState === "correct"
-      ? "animate-pulse-green"
+      ? "animate-pulse-primary"
       : answerState === "incorrect"
       ? "animate-pulse-red"
       : "";
 
   return (
-    <div className="perspective-[1000px] w-full h-full cursor-pointer" onClick={handleCardClick}>
+    <div className="perspective-[1000px] w-full aspect-square cursor-pointer group" onClick={handleCardClick}>
       <Card
         className={cn(
-          "relative w-full h-full transition-transform duration-700 transform-style-3d rounded-lg",
+          "relative w-full h-full transition-transform duration-700 transform-style-3d rounded-2xl",
           isFlipped ? "rotate-y-180" : "",
           glowEffect
         )}
       >
         {/* Front of the card */}
-        <div className="absolute w-full h-full backface-hidden flex items-center justify-center bg-card rounded-lg border shadow-lg p-4">
-          <Image
+        <div className="absolute w-full h-full backface-hidden flex items-center justify-center bg-card rounded-2xl border-2 shadow-lg p-4 overflow-hidden">
+           <Image
             src={questionData.image}
             alt="Regalo"
-            width={128}
-            height={128}
-            className="object-contain w-full h-full"
+            fill
+            className="object-contain w-full h-full p-4 group-hover:scale-110 transition-transform duration-300"
           />
         </div>
 
         {/* Back of the card */}
         <div className={cn(
-          "absolute w-full h-full backface-hidden rotate-y-180 bg-card rounded-lg border shadow-lg flex flex-col items-center justify-center p-4 md:p-6 transition-opacity duration-300",
+          "absolute w-full h-full backface-hidden rotate-y-180 bg-card rounded-2xl border-2 shadow-lg flex flex-col items-center justify-center p-4 md:p-6 transition-opacity duration-300",
           isRevealed ? "opacity-100" : "opacity-0"
         )}>
           {answerState === 'correct' ? (
-            <div className="text-center">
-              <h2 className="text-2xl md:text-4xl font-bold text-green-600">¡Ganaste tu regalo!</h2>
+            <div className="text-center flex flex-col items-center gap-4">
+              <PartyPopper className="w-16 h-16 text-primary" />
+              <h2 className="text-2xl md:text-3xl font-bold text-primary">¡Ganaste!</h2>
+              <p className="text-muted-foreground">¡Has desbloqueado tu regalo!</p>
             </div>
           ) : (
-            <div className="flex flex-col items-center justify-between h-full w-full text-center">
-              <h2 className="text-xl md:text-2xl font-bold mb-4 leading-tight">
+            <div className="flex flex-col items-center justify-center h-full w-full text-center">
+              <h2 className="text-xl md:text-2xl font-bold mb-6 leading-tight">
                 {questionData.question}
               </h2>
               <div className="flex flex-col w-full space-y-3">
@@ -89,8 +91,8 @@ export function GameCard({ questionData }: GameCardProps) {
                       e.stopPropagation(); // Prevent card from flipping back on button click
                       handleAnswerClick(option)
                     }}
-                    className="w-full h-auto min-h-[60px] text-lg md:text-xl py-3 px-4 whitespace-normal"
-                    variant="outline"
+                    className="w-full h-auto text-base md:text-lg py-3 px-4 whitespace-normal"
+                    variant="secondary"
                     disabled={answerState !== 'unanswered'}
                   >
                     {option}
