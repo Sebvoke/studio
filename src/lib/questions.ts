@@ -45,7 +45,7 @@ export const questions: Question[] = [
   },
   {
     id: 6,
-    question: '¿Cúales son los canales oficiales donde puedes informarte correctamente sobre el proceso electoral? ',
+    question: '¿Es el voto secreto?',
     options: ['No, es público', 'Depende de la región', 'Sí, es secreto'],
     correctAnswer: 'Sí, es secreto',
     image: '/regalo6.png',
