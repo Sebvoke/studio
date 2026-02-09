@@ -59,12 +59,12 @@ export function GameCard({ questionData }: GameCardProps) {
         {/* Front of the card */}
         <div className="absolute w-full h-full backface-hidden rounded-2xl overflow-hidden shadow-lg border-4 border-white/10 bg-black/80 backdrop-blur-md">
           <div className="flex flex-col items-center justify-center w-full h-full p-6 text-center text-white">
-            <div className="relative w-32 h-32 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
+            <div className="relative w-48 h-48 transition-transform duration-300 group-hover:scale-110 group-hover:-translate-y-2">
                <Image
                 src={questionData.image}
                 alt="Regalo"
                 fill
-                className="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]"
+                className="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-0 invert"
                />
             </div>
             <p className="font-bold text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/60">
