@@ -70,7 +70,6 @@ export function GameCard({ questionData }: GameCardProps) {
             <p className="font-bold text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/60">
               Regalo
             </p>
-            <p className="font-semibold text-lg text-white/70">por Voto Informado</p>
             <div className="mt-auto bg-white/10 rounded-full py-1 px-4 text-sm">
                 Toca para revelar
             </div>
