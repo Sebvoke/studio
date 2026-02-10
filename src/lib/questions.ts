@@ -11,7 +11,7 @@ export const questions: Question[] = [
     id: 1,
     question: '¿Cuál es el mensaje central de la campaña OrguYO – Voto Informado?'
 ,
-    options: ['Informarse para emitir un voto responsable ', 'Criticar el sistema electoral', 'incentivar a votar sin pensar','Promover un partido político'],
+    options: ['Informarse para emitir un voto responsable ', 'Criticar el sistema electoral', 'Incentivar a votar sin pensar','Promover un partido político'],
     correctAnswer: 'Informarse para emitir un voto responsable ',
     image: '/gift1.png',
   },
@@ -45,9 +45,9 @@ export const questions: Question[] = [
   },
   {
     id: 6,
-    question: '¿Es el voto secreto?',
-    options: ['No, es público', 'Depende de la región', 'Sí, es secreto'],
-    correctAnswer: 'Sí, es secreto',
+    question: '¿Cúales son los canales oficiales donde puedes informarte correctamente sobre el proceso electoral?',
+    options: ['Redes sociales', 'Información de creadores de contenido', 'JNE,ONPE y RENIEC','Preguntar a amigos y familiares'],
+    correctAnswer: 'JNE,ONPE y RENIEC',
     image: '/gift6.png',
   },
 ];

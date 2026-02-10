@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import type { Question } from "@/lib/questions";
@@ -17,6 +17,12 @@ export function GameCard({ questionData }: GameCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [answerState, setAnswerState] = useState<AnswerState>("unanswered");
   const [isRevealed, setIsRevealed] = useState(false);
+  const [shuffledOptions, setShuffledOptions] = useState<string[]>([]);
+
+  useEffect(() => {
+    // We shuffle the options here, on the client, to avoid hydration mismatch.
+    setShuffledOptions([...questionData.options].sort(() => Math.random() - 0.5));
+  }, [questionData.options]);
 
   const handleCardClick = () => {
     if (answerState !== 'correct' && !isFlipped) {
@@ -64,7 +70,7 @@ export function GameCard({ questionData }: GameCardProps) {
                 src={questionData.image}
                 alt="Regalo"
                 fill
-                className="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-0 invert"
+                className="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]"
                />
             </div>
             <p className="font-bold text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/60">
@@ -96,7 +102,7 @@ export function GameCard({ questionData }: GameCardProps) {
                   {questionData.question}
                 </h2>
                 <div className="flex flex-col w-full space-y-2 sm:space-y-3">
-                  {questionData.options.map((option) => (
+                  {shuffledOptions.map((option) => (
                     <Button
                       key={option}
                       onClick={(e) => {
