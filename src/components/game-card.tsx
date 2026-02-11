@@ -70,12 +70,9 @@ export function GameCard({ questionData }: GameCardProps) {
                 src={questionData.image}
                 alt="Regalo"
                 fill
-                className="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)]"
+                className="object-contain drop-shadow-[0_10px_10px_rgba(0,0,0,0.5)] brightness-0 invert"
                />
             </div>
-            <p className="font-bold text-2xl mt-4 bg-clip-text text-transparent bg-gradient-to-r from-white/90 to-white/60">
-              Regalo
-            </p>
             <div className="mt-auto bg-white/10 rounded-full py-1 px-4 text-sm">
                 Toca para revelar
             </div>
