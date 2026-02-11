@@ -18,7 +18,7 @@ export const questions: Question[] = [
   {
     id: 2,
     question: '¿Qué acciones debemos realizar antes de votar? ',
-    options: ['Revisar los CVs de los candidatos y analizar propuestas', 'Seguir la opinión de los influencers', 'Escuchar al candidato más popular','Preguntale a la IA quien gana las encuestas'],
+    options: ['Revisar los CVs de los candidatos y analizar propuestas', 'Seguir la opinión de los influencers', 'Escuchar al candidato más popular','Preguntale a la IA quién gana las encuestas'],
     correctAnswer: 'Revisar los CVs de los candidatos y analizar propuestas',
     image: '/gift2.png',
   },
@@ -46,8 +46,8 @@ export const questions: Question[] = [
   {
     id: 6,
     question: '¿Cúales son los canales oficiales donde puedes informarte correctamente sobre el proceso electoral?',
-    options: ['Redes sociales', 'Información de creadores de contenido', 'JNE,ONPE y RENIEC','Preguntar a amigos y familiares'],
-    correctAnswer: 'JNE,ONPE y RENIEC',
+    options: ['Redes sociales', 'Información de creadores de contenido', 'JNE, ONPE y RENIEC','Preguntar a amigos y familiares'],
+    correctAnswer: 'JNE, ONPE y RENIEC',
     image: '/gift6.png',
   },
 ];
